@@ -36,7 +36,17 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug
+          for attempt in 1 2 3 4; do
+            echo "Gradle build attempt $attempt/4"
+            if ./gradlew assembleDebug --no-daemon --max-workers=2; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 4 ]; then
+              echo "Build failed, likely temporary Maven rate limit. Waiting before retry..."
+              sleep $((attempt * 30))
+            fi
+          done
+          exit 1
       - name: Upload V2 APK
         uses: actions/upload-artifact@v4
         with:
