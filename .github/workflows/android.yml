@@ -10,6 +10,8 @@ on:
       - 'service-worker.js'
       - 'package.json'
       - 'capacitor.config.json'
+      - 'manifest.webmanifest'
+      - 'assets/**'
       - '.github/workflows/android.yml'
 permissions:
   contents: read
@@ -27,12 +29,20 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install
+      - name: Download original game artwork for offline use
+        run: |
+          mkdir -p assets
+          curl -fL --retry 3 'https://i.postimg.cc/L5KZzqLc/optimized-asset-(2).jpg' -o assets/ludo-bg.jpg
+          curl -fL --retry 3 'https://i.postimg.cc/RFZ9cq2x/board-8-token-red.png' -o assets/token-red.png
+          curl -fL --retry 3 'https://i.postimg.cc/jqkq4Qsc/board-8-token-green.png' -o assets/token-green.png
+          curl -fL --retry 3 'https://i.postimg.cc/R0QV7kFv/board-8-token-yellow.png' -o assets/token-yellow.png
+          curl -fL --retry 3 'https://i.postimg.cc/7PChcQtz/board-8-token-blue.png' -o assets/token-blue.png
       - name: Prepare web assets
         run: |
           mkdir -p www
           cp index.html style.css app.js manifest.webmanifest service-worker.js www/
           mkdir -p www/assets
-          cp assets/icon.svg www/assets/
+          cp assets/* www/assets/
       - name: Generate Android project
         run: npx cap add android
       - name: Sync Capacitor
