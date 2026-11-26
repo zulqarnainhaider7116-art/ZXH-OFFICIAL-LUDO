@@ -1,0 +1,19 @@
+{
+  "name": "ZXH OFFICIAL LUDO — Classic Edition",
+  "short_name": "ZXH LUDO",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f7fb",
+  "theme_color": "#f7f8fc",
+  "description": "Classic offline Ludo game by ZXH OFFICIAL",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
