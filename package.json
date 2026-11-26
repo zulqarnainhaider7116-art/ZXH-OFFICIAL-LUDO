@@ -1,0 +1,1 @@
+{"name":"zxh-official-ludo","version":"1.0.0","private":true,"description":"ZXH OFFICIAL premium offline Ludo Android app","scripts":{"android:sync":"cap sync android","android:open":"cap open android"},"dependencies":{"@capacitor/android":"^7.4.3","@capacitor/core":"^7.4.3"},"devDependencies":{"@capacitor/cli":"^7.4.3"}}
