@@ -28,3 +28,22 @@ Gameplay, board artwork, tokens and sound effects run locally. Sound effects are
 
 **Powered by ZXH OFFICIAL**  
 **ZULQARNAIN X HAIDER**
+
+
+## ZXH OFFICIAL LUDO V2 — New standalone build
+
+A newly built, self-contained mobile-first edition is available in `/v2`.
+
+- Classic 52-space Ludo loop and four home lanes
+- 2-player (Red vs Yellow), 3-player and 4-player matches
+- Local pass-and-play or CPU opponents with difficulty settings
+- Animated dice, legal token selection, captures and safe squares
+- Four tokens per player and win detection
+- No ads, account, subscription, analytics or backend
+- Installable PWA with a local service worker and offline cache
+- All gameplay code, styling and artwork are local; no external fonts or CDNs
+
+Open the new version: [ZXH OFFICIAL LUDO V2](./v2/)
+
+Creator: **ZULQARNAIN X HAIDER**  
+Powered by **ZXH OFFICIAL**
