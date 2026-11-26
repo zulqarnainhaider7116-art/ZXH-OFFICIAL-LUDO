@@ -1,11 +1,16 @@
-const CACHE_NAME = "zxh-ludo-v2";
+const CACHE_NAME = "zxh-ludo-original-v3";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
   "./manifest.webmanifest",
-  "./assets/icon.svg"
+  "./assets/icon.svg",
+  "./assets/ludo-bg.jpg",
+  "./assets/token-red.png",
+  "./assets/token-green.png",
+  "./assets/token-yellow.png",
+  "./assets/token-blue.png"
 ];
 
 self.addEventListener("install", event => {
