@@ -7,6 +7,7 @@ on:
       - 'index.html'
       - 'style.css'
       - 'app.js'
+      - 'service-worker.js'
       - 'package.json'
       - 'capacitor.config.json'
       - '.github/workflows/android.yml'
@@ -29,7 +30,7 @@ jobs:
       - name: Prepare web assets
         run: |
           mkdir -p www
-          cp index.html style.css app.js manifest.webmanifest www/
+          cp index.html style.css app.js manifest.webmanifest service-worker.js www/
           mkdir -p www/assets
           cp assets/icon.svg www/assets/
       - name: Generate Android project
