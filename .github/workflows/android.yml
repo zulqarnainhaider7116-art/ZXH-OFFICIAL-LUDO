@@ -1,17 +1,12 @@
-name: Build Android APK
+name: Build ZXH OFFICIAL LUDO V2 Android APK
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - 'index.html'
-      - 'style.css'
-      - 'app.js'
-      - 'service-worker.js'
+      - 'v2/**'
       - 'package.json'
       - 'capacitor.config.json'
-      - 'manifest.webmanifest'
-      - 'assets/**'
       - '.github/workflows/android.yml'
 permissions:
   contents: read
@@ -29,20 +24,10 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install
-      - name: Download original game artwork for offline use
-        run: |
-          mkdir -p assets
-          curl -fL --retry 3 'https://i.postimg.cc/L5KZzqLc/optimized-asset-(2).jpg' -o assets/ludo-bg.jpg
-          curl -fL --retry 3 'https://i.postimg.cc/RFZ9cq2x/board-8-token-red.png' -o assets/token-red.png
-          curl -fL --retry 3 'https://i.postimg.cc/jqkq4Qsc/board-8-token-green.png' -o assets/token-green.png
-          curl -fL --retry 3 'https://i.postimg.cc/R0QV7kFv/board-8-token-yellow.png' -o assets/token-yellow.png
-          curl -fL --retry 3 'https://i.postimg.cc/7PChcQtz/board-8-token-blue.png' -o assets/token-blue.png
-      - name: Prepare web assets
+      - name: Prepare V2 game for Android
         run: |
           mkdir -p www
-          cp index.html style.css app.js manifest.webmanifest service-worker.js www/
-          mkdir -p www/assets
-          cp assets/* www/assets/
+          cp -R v2/. www/
       - name: Generate Android project
         run: npx cap add android
       - name: Sync Capacitor
@@ -52,9 +37,9 @@ jobs:
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
-      - name: Upload APK
+      - name: Upload V2 APK
         uses: actions/upload-artifact@v4
         with:
-          name: ZXH-OFFICIAL-LUDO-APK
+          name: ZXH-OFFICIAL-LUDO-V2-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
