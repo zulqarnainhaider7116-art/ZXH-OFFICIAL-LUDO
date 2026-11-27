@@ -1,0 +1,1 @@
+# ZXH OFFICIAL LUDO — Native Android\n\nKotlin + Jetpack Compose. No WebView, HTML wrapper, ads SDK, subscriptions or in-app purchases. Offline native game shell with local pass-and-play flow.\n\nBuild: JDK 17 + Android SDK 35, then gradle assembleDebug. GitHub Actions publishes the APK artifact.\n\nBrand credit: ZULQARNAIN X HAIDER.\n
